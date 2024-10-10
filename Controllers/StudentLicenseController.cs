@@ -32,7 +32,13 @@ namespace LicenseAppAPI.Controllers
             {
                 return BadRequest(ModelState);
             }
+            var existingLicense = await _context.StudentLicenses
+       .FirstOrDefaultAsync(s => s.Email == license.Email);
 
+            if (existingLicense != null)
+            {
+                return BadRequest(new { message = "A student with this email already exists." });
+            }
 
             if (studentId != null && studentId.Length > 0)
             {

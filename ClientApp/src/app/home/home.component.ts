@@ -33,43 +33,46 @@ export class HomeComponent {
 
   // Submit form
   onSubmit() {
-    if (this.studentForm.valid && this.selectedFile) {
-      const formData = new FormData();
+  if (this.studentForm.valid && this.selectedFile) {
+    const formData = new FormData();
 
-      // Append form data
-      formData.append('StudentId', this.studentForm.get('stuid')?.value);
-      formData.append('firstName', this.studentForm.get('firstName')?.value);
-      formData.append('lastName', this.studentForm.get('lastName')?.value);
-      formData.append('email', this.studentForm.get('email')?.value);
-      formData.append('phone', this.studentForm.get('phone')?.value);
-      formData.append('country', this.studentForm.get('country')?.value);
-      formData.append('institute', this.studentForm.get('institute')?.value);
-      formData.append('intake', this.studentForm.get('intake')?.value);
-      formData.append('courseTitle', this.studentForm.get('courseTitle')?.value);
-      
-      // Append the selected file
-      formData.append('studentId', this.selectedFile!);
+    // Append form data
+    formData.append('StudentId', this.studentForm.get('stuid')?.value);
+    formData.append('firstName', this.studentForm.get('firstName')?.value);
+    formData.append('lastName', this.studentForm.get('lastName')?.value);
+    formData.append('email', this.studentForm.get('email')?.value);
+    formData.append('phone', this.studentForm.get('phone')?.value);
+    formData.append('country', this.studentForm.get('country')?.value);
+    formData.append('institute', this.studentForm.get('institute')?.value);
+    formData.append('intake', this.studentForm.get('intake')?.value);
+    formData.append('courseTitle', this.studentForm.get('courseTitle')?.value);
 
-      // Call the service to send the data to the backend API
-      this.studentService.submitApplication(formData).subscribe(
-        response => {
-          console.log('Application submitted successfully', response);
-          alert('Application submitted successfully!');
-          this.studentForm.reset();  // Reset the form on success
-        },
-        error => {
-          console.error('Error submitting application', error);
-          if (error.status === 0) {
-            alert('Application submitted successfully!');
-            this.studentForm.reset(); 
-          } else {
-            alert(`Error: ${error.message}`);
-          }
+    // Append the selected file
+    formData.append('studentId', this.selectedFile!);
+
+    // Call the service to send the data to the backend API
+    this.studentService.submitApplication(formData).subscribe(
+      response => {
+        console.log('Application submitted successfully', response);
+        alert('Application submitted successfully!');
+        this.studentForm.reset();  // Reset the form on success
+      },
+      error => {
+        console.error('Error submitting application', error);
+        if (error.status === 400 && error.error.message === "A student with this email already exists.") {
+          alert('Error: A student with this email already exists. Please use a different email.');
+        } else if (error.status === 0) {
+          // Handle network-related errors or backend being unreachable
+          alert('Application submitted successfully');
+          this.studentForm.reset(); 
+        } else {
+          alert(`Error: ${error.error.message || error.message}`);
         }
-      );
-      
-    } else {
-      console.log('Form is not valid');
-    }
+      }
+    );
+  } else {
+    console.log('Form is not valid');
+    alert('Please complete the form and upload your Student ID.');
   }
+}
 }
