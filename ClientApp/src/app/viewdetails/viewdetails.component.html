@@ -1,0 +1,39 @@
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Student Details</h2>
+    
+    <button class="btn btn-primary mb-3" (click)="printTable()">Print Table</button>
+    
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>First Name</th>
+          <th>Last Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Country</th>
+          <th>Institute</th>
+          <th>Intake</th>
+          <th>Course Title</th>
+          <th>Student ID (File)</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let student of studentDetails">
+          <td>{{ student.firstName }}</td>
+          <td>{{ student.lastName }}</td>
+          <td>{{ student.email }}</td>
+          <td>{{ student.phone }}</td>
+          <td>{{ student.country }}</td>
+          <td>{{ student.institute }}</td>
+          <td>{{ student.intake }}</td>
+          <td>{{ student.courseTitle }}</td>
+          <td><a [href]="student.studentId" target="_blank">View ID</a></td>
+          <td>
+            <button class="btn btn-danger btn-sm">Delete</button> <!-- Delete button -->
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

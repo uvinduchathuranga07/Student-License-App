@@ -14,4 +14,8 @@ export class StudentLicenseService {
   submitApplication(formData: FormData): Observable<any> {
     return this.http.post(this.apiUrl, formData);
   }
+
+  getStudentDetails(): Observable<any> {
+    return this.http.get<any>(this.apiUrl);
+  }
 }

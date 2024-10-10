@@ -1,1 +1,30 @@
-<p>admin works!</p>
+<div class="container mt-5">
+    <h2 class="text-center mb-4">Admin Login</h2>
+    <form (ngSubmit)="onSubmit()" #loginForm="ngForm">
+      <!-- Username -->
+      <div class="mb-3">
+        <label for="username" class="form-label">Username</label>
+        <input type="text" class="form-control" id="username" name="username" [(ngModel)]="username" required>
+        <div class="invalid-feedback" *ngIf="loginForm.submitted && !username">
+          Username is required.
+        </div>
+      </div>
+  
+      <!-- Password -->
+      <div class="mb-3">
+        <label for="password" class="form-label">Password</label>
+        <input type="password" class="form-control" id="password" name="password" [(ngModel)]="password" required>
+        <div class="invalid-feedback" *ngIf="loginForm.submitted && !password">
+          Password is required.
+        </div>
+      </div>
+  
+      <button type="submit" class="btn btn-primary">Login</button>
+  
+      <!-- Error message -->
+      <div *ngIf="loginFailed" class="text-danger mt-2">
+        Invalid username or password!
+      </div>
+    </form>
+  </div>
+  

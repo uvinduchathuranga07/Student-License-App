@@ -6,11 +6,12 @@ import { LoginComponent } from './login/login.component';
 import { CounterComponent } from './counter/counter.component';
 import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { NavMenuComponent } from './nav-menu/nav-menu.component';
-
+import { ViewdetailsComponent } from './viewdetails/viewdetails.component';
 // Define routes for the application
 const routes: Routes = [
   { path: '', component: HomeComponent }, // Home route
-  { path: 'admin', component: AdminComponent }, // Admin route
+  { path: 'admin', component: AdminComponent },
+  { path: 'details', component: ViewdetailsComponent }, // Admin route
   { path: 'login', component: LoginComponent }, // Login route
   { path: 'counter', component: CounterComponent }, // Counter route
   { path: 'fetch-data', component: FetchDataComponent }, // Fetch Data route

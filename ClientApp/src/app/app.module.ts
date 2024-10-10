@@ -12,7 +12,7 @@ import { FetchDataComponent } from './fetch-data/fetch-data.component';
 import { AppRoutingModule } from './app-routing.module';
 import { ReactiveFormsModule } from '@angular/forms'; 
 import { AdminComponent } from './admin/admin.component';
-
+import { ViewdetailsComponent } from './viewdetails/viewdetails.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,6 +20,7 @@ import { AdminComponent } from './admin/admin.component';
     HomeComponent,
     AdminComponent,
     CounterComponent,
+    ViewdetailsComponent,
     FetchDataComponent
   ],
   imports: [
