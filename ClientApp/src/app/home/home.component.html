@@ -1,0 +1,93 @@
+<div class="container mt-5">
+  <h2 class="text-center mb-4">Student License Application</h2>
+  <form class="needs-validation" novalidate>
+    <!-- First Name -->
+    <div class="mb-3">
+      <label for="firstName" class="form-label">First Name</label>
+      <input type="text" class="form-control" id="firstName" required>
+      <div class="invalid-feedback">
+        First name is required.
+      </div>
+    </div>
+
+    <!-- Last Name -->
+    <div class="mb-3">
+      <label for="lastName" class="form-label">Last Name</label>
+      <input type="text" class="form-control" id="lastName" required>
+      <div class="invalid-feedback">
+        Last name is required.
+      </div>
+    </div>
+
+    <!-- Email -->
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input type="email" class="form-control" id="email" required>
+      <div class="invalid-feedback">
+        A valid email is required.
+      </div>
+    </div>
+
+    <!-- Phone Number -->
+    <div class="mb-3">
+      <label for="phone" class="form-label">Phone Number</label>
+      <input type="tel" class="form-control" id="phone" required>
+      <div class="invalid-feedback">
+        Phone number is required.
+      </div>
+    </div>
+
+    <!-- Country -->
+    <div class="mb-3">
+      <label for="country" class="form-label">Country</label>
+      <select class="form-select" id="country" required>
+        <option value="">Select Country</option>
+        <option value="USA">USA</option>
+        <option value="Canada">Canada</option>
+        <option value="UK">UK</option>
+      </select>
+      <div class="invalid-feedback">
+        Country is required.
+      </div>
+    </div>
+
+    <!-- Institute -->
+    <div class="mb-3">
+      <label for="institute" class="form-label">Institute</label>
+      <input type="text" class="form-control" id="institute" required>
+      <div class="invalid-feedback">
+        Institute is required.
+      </div>
+    </div>
+
+    <!-- Intake -->
+    <div class="mb-3">
+      <label for="intake" class="form-label">Intake</label>
+      <input type="text" class="form-control" id="intake" required>
+      <div class="invalid-feedback">
+        Intake is required.
+      </div>
+    </div>
+
+    <!-- Course Title -->
+    <div class="mb-3">
+      <label for="courseTitle" class="form-label">Course Title</label>
+      <input type="text" class="form-control" id="courseTitle" required>
+      <div class="invalid-feedback">
+        Course title is required.
+      </div>
+    </div>
+
+    <!-- Upload Student ID Card -->
+    <div class="mb-3">
+      <label for="studentId" class="form-label">Upload Student ID Card (JPG/PNG only, max 10MB)</label>
+      <input type="file" class="form-control" id="studentId" accept=".jpg,.jpeg,.png" required>
+      <div class="invalid-feedback">
+        A valid Student ID file is required.
+      </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Submit Application</button>
+  </form>
+</div>
+
